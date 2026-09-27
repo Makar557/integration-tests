@@ -4,11 +4,8 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.Duration;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserServiceE2ETest {
@@ -125,26 +122,5 @@ public class UserServiceE2ETest {
                         return false;
                     }
                 });
-    }
-
-    record MailpitMessage(
-            @JsonProperty("Subject")
-            String subject,
-
-            @JsonProperty("Text")
-            String text,
-
-            @JsonProperty("To")
-            List<MailpitAddress> to
-    ) {
-    }
-
-    record MailpitAddress(
-            @JsonProperty("Name")
-            String name,
-
-            @JsonProperty("Address")
-            String address
-    ) {
     }
 }
